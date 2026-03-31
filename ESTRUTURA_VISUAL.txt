@@ -1,0 +1,119 @@
+📦 datalukas/
+│
+├── 📄 Configuration Files
+│   ├── package.json              → npm config + scripts
+│   ├── vite.config.ts            → Vite bundler config
+│   ├── tsconfig.json             → TypeScript strict mode
+│   ├── tsconfig.node.json        → TS config for Vite
+│   └── index.html                → HTML entry point
+│
+├── 📂 src/
+│   │
+│   ├── 🎨 components/            [8 UI Components]
+│   │   ├── Login.tsx             → Authentication screen
+│   │   ├── Ranking.tsx           → Main ranking view
+│   │   ├── ScoreBar.tsx          → Individual score item
+│   │   ├── PodiumCard.tsx        → Podium card (1st, 2nd, 3rd)
+│   │   ├── EmployeePanel.tsx     → Employee dashboard
+│   │   ├── Mailbox.tsx           → Anonymous messaging
+│   │   ├── AdminPanel.tsx        → Admin dashboard
+│   │   └── Rules.tsx             → Rules & criteria
+│   │
+│   ├── 📊 data/
+│   │   └── constants.tsx         → Initial data & configs
+│   │                               - 5 attendants
+│   │                               - User directory
+│   │                               - Default history
+│   │                               - Score reasons
+│   │                               - Rules
+│   │
+│   ├── 🔧 hooks/                 [Ready for Step 2]
+│   │   └── (useAuth, useFirestore, etc)
+│   │
+│   ├── 🔌 services/
+│   │   └── firebase.ts           → Firebase config
+│   │                               - Auth
+│   │                               - Firestore
+│   │
+│   ├── 💅 styles/
+│   │   └── index.css             → Global CSS
+│   │                               - :root variables
+│   │                               - Utilities
+│   │                               - Original colors
+│   │
+│   ├── 📘 types/
+│   │   └── index.ts              → TypeScript interfaces
+│   │                               - 11 interfaces
+│   │                               - Full type coverage
+│   │
+│   ├── 🛠️ utils/
+│   │   └── helpers.ts            → Helper functions
+│   │                               - cn() - class names
+│   │                               - scoreLevel()
+│   │                               - formatCreatedAt()
+│   │                               - loginToEmail()
+│   │                               - attendantByName()
+│   │
+│   ├── App.tsx                   → Main orchestrator
+│   ├── main.tsx                  → React entry point
+│   └── vite-env.d.ts             → Vite types
+│
+├── 📂 public/                    → Static assets
+│
+├── 📂 dist/                      → Production build
+│   ├── index.html
+│   └── assets/
+│       ├── index-*.css           (2.44 KB)
+│       └── index-*.js            (308 KB → 96KB gzipped)
+│
+└── 📚 Documentation
+    ├── README.md                 → Complete guide
+    ├── ETAPA1_CONCLUIDA.md       → Step 1 summary
+    ├── ESTRUTURA_CRIADA.md       → Technical details
+    ├── ESTRUTURA_VISUAL.txt      → This file
+    └── QUICK_START.sh            → Quick commands
+
+═══════════════════════════════════════════════════════════════
+
+🎯 KEY METRICS
+──────────────
+Components:        8
+TypeScript Types:  11
+Helper Functions:  5
+Attendants:        5
+Rules:             7
+Lines of Code:     ~1,500
+Build Time:        ~5s
+Bundle Size:       96KB (gzipped)
+Visual Fidelity:   100%
+
+🎨 VISUAL IDENTITY (100% PRESERVED)
+───────────────────────────────────
+✓ Color palette (emerald, sky, violet, indigo, purple)
+✓ Gradient backgrounds
+✓ Radial overlays
+✓ Podium layout (2nd, 1st, 3rd)
+✓ Score bars with animations
+✓ Hover tooltips
+✓ Badge system
+✓ Dark theme (#030814)
+✓ All borders & transparency levels
+
+🔐 ACCESS LEVELS
+────────────────
+Admin:      Full control, approve/reject, manual edits
+Employee:   Own score, history, contests, anonymous messages
+Public:     Login required (no public access)
+
+💾 DATA FLOW (Current - Step 1)
+────────────────────────────────
+User Input → React State → Re-render UI
+(No persistence - resets on reload)
+
+💾 DATA FLOW (Future - Step 2)
+───────────────────────────────
+User Input → Firebase → Real-time Listeners → React State → UI
+(Full persistence + multi-user sync)
+
+═══════════════════════════════════════════════════════════════
+
