@@ -1,58 +1,71 @@
 #!/bin/bash
-# Quick Start Guide - DataLukas
+# DataLukas - Quick Start Automatizado
 
 echo "═══════════════════════════════════════"
-echo "  DataLukas - Quick Start"
+echo "  🚀 DataLukas - Quick Start"
 echo "═══════════════════════════════════════"
 echo ""
 
-echo "1️⃣  Instalar dependências:"
-echo "   NODE_ENV=development npm install"
-echo ""
+# Verificar se está na raiz do projeto
+if [ ! -f "package.json" ]; then
+    echo "❌ Execute na raiz do projeto DataLukas"
+    exit 1
+fi
 
-echo "2️⃣  Rodar em desenvolvimento:"
-echo "   npm run dev"
-echo "   → Acesse: http://localhost:5173"
-echo ""
+echo "📦 Instalando dependências..."
+if npm install; then
+    echo "✅ Dependências instaladas"
+else
+    echo "❌ Erro ao instalar dependências"
+    exit 1
+fi
 
-echo "3️⃣  Build para produção:"
-echo "   npm run build"
-echo "   → Output: dist/"
 echo ""
+echo "⚙️ Configurando .env..."
+if [ ! -f ".env" ]; then
+    if [ -f ".env.example" ]; then
+        cp .env.example .env
+        echo "✅ Arquivo .env criado"
+        echo "⚠️  Configure suas credenciais Firebase no .env"
+        echo ""
+        echo "📍 Obtenha em: https://console.firebase.google.com/project/datalukas-7ff57"
+        echo "   Project Settings > General > Your apps"
+        echo ""
+        read -p "Pressione ENTER após configurar .env..."
+    fi
+else
+    echo "✅ Arquivo .env encontrado"
+fi
 
-echo "4️⃣  Preview da build:"
-echo "   npm run preview"
 echo ""
+echo "🧪 Testando build..."
+if npm run build > /dev/null 2>&1; then
+    echo "✅ Build funcionando"
+else
+    echo "❌ Erro no build - verifique configurações .env"
+    exit 1
+fi
 
+echo ""
 echo "═══════════════════════════════════════"
-echo "  Credenciais de Acesso"
+echo "  📧 Credenciais de Acesso"
 echo "═══════════════════════════════════════"
 echo ""
-echo "Admin:"
-echo "  Login: admin"
-echo "  Senha: admin"
+echo "🔐 Admin:"
+echo "   Email: admin@datalukas.com"
+echo "   Senha: admin"
 echo ""
-echo "Funcionários:"
-echo "  Login: andrade | Senha: andrade"
-echo "  Login: leo     | Senha: leo"
-echo "  Login: rallyson| Senha: rallyson"
-echo "  Login: william | Senha: william"
-echo "  Login: helder  | Senha: helder"
+echo "👥 Funcionários:"
+echo "   Email: helder@datalukas.com    | Senha: helder"
+echo "   Email: andrade@datalukas.com   | Senha: andrade"
+echo "   Email: leo@datalukas.com       | Senha: leo"
+echo "   Email: rallyson@datalukas.com  | Senha: rallyson"
+echo "   Email: william@datalukas.com   | Senha: william"
 echo ""
 
-echo "═══════════════════════════════════════"
-echo "  Status do Projeto"
-echo "═══════════════════════════════════════"
+echo "🚀 Iniciando aplicação..."
+echo "📍 Acesse: http://localhost:5173"
+echo "🔧 Pressione Ctrl+C para parar"
 echo ""
-echo "✅ Vite + React + TypeScript"
-echo "✅ 8 componentes modulares"
-echo "✅ CSS original preservado"
-echo "✅ Estado em memória (LocalStorage ready)"
-echo "✅ Firebase configurado (Etapa 2)"
-echo "✅ Build otimizado (96KB gzipped)"
-echo ""
-echo "📄 Documentação:"
-echo "   - README.md"
-echo "   - ETAPA1_CONCLUIDA.md"
-echo "   - ESTRUTURA_CRIADA.md"
-echo ""
+
+npm run dev
